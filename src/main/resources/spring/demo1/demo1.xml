@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- 引入其他配置文件 -->
+    <import resource="demoextra.xml"/>
+    
+    <bean id="demo1" name="demo2,demo3,demo4" class="com.example.demo.spring.demo1.Demo1">
+
+    </bean>
+
+    <alias name="demo1" alias="alias1"/>
+    <alias name="demo1" alias="alias2"/>
+    <alias name="demo1" alias="alias3"/>
+
+</beans>

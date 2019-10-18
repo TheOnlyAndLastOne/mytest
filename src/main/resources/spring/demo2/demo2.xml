@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+    <!-- 使用静态工厂注入bean -->
+    <bean id="static-factory" class="com.example.demo.spring.demo2.StaticFactoryDemo" factory-method="createInstance">
+
+    </bean>
+
+    <!-- 使用普通工厂注入bean，先注册工厂bean，再通过生成bean的方法注册我们想要的bean -->
+    <bean id="default-bean-generator" class="com.example.demo.spring.demo2.DefaultBeanGenerator">
+    </bean>
+
+    <bean id="default-bean" factory-bean="default-bean-generator" factory-method="createDefaultBeanInstance">
+
+    </bean>
+
+</beans>

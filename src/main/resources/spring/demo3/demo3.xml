@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+    <!--
+    使用构造函数来进行依赖注入，除了注入对象，也可以注入基本类型
+     -->
+    <bean id="demo3" class="com.example.demo.spring.demo3.Demo3">
+
+        <!--<constructor-arg type="java.lang.String" value="demo-name-type"/>-->
+
+        <!-- 指定name，可以在构造函数上使用@ConstructorProperties({"XXXX", "XXXXX"})来指定bean.xml里构造函数的name属性 -->
+        <!--<constructor-arg name="name" value="demo-name-name"/>-->
+
+        <!-- 指定index -->
+        <constructor-arg index="0" value="demo-name-index"/>
+
+        <constructor-arg ref="dependency"/>
+    </bean>
+
+    <!-- 使用property标签通过setter方法进行依赖注入 -->
+    <bean id="dependency" class="com.example.demo.spring.demo3.Dependency">
+        <property name="dependency2" ref="dependency3">
+            <!-- property的构造函数，用idref而不是constructor-arg是为了区别 -->
+            <!--<idref bean=""></idref>-->
+        </property>
+    </bean>
+
+    <bean id="dependency3" class="com.example.demo.spring.demo3.Dependency2">
+
+    </bean>
+
+</beans>
