@@ -1,2 +1,17 @@
 server:
   port: 8080
+
+spring:
+  data:
+    elasticsearch:
+      cluster-nodes: localhost:9300 # 配置IP及端口号
+      cluster-name: elasticsearch
+
+hawtio:
+  authenticationEnabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hawtio,jolokia
